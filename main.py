@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+import database as db
 
 BASE_URL= "https://raw.githubusercontent.com/ByMykel/CSGO-API/main/public/api/en"
 SKINS_URL = f"{BASE_URL}/skins.json"
@@ -41,9 +42,8 @@ def main():
     my_inventory.append(ak47_sv_pant_ft)
     my_inventory.append(m4a1_play_ft)
 
+    cursor = db.createDB("CadeInv.db")
 
-    print(my_inventory)
-    
 
 my_inventory = []    
 skins = load_json(SKINS_URL, "skins_cache.json")
