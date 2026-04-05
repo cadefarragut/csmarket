@@ -33,7 +33,14 @@ def getInformation(skin_id):
 
 def main():
     m9_bayonet_stained_ft = getInformation("skin-bab9cbb31702_2")
+    ak47_sv_pant_ft = getInformation("skin-2faa35fd1c44_2_so")
+    m4a1_play_ft = getInformation("skin-4dd5dccd2fdd_2")
+
+
     my_inventory.append(m9_bayonet_stained_ft)
+    my_inventory.append(ak47_sv_pant_ft)
+    my_inventory.append(m4a1_play_ft)
+
 
     print(my_inventory)
     
