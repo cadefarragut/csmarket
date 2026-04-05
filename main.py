@@ -42,7 +42,9 @@ def main():
     my_inventory.append(ak47_sv_pant_ft)
     my_inventory.append(m4a1_play_ft)
 
-    cursor = db.createDB("CadeInv.db")
+    inv = db.createDB("CadeInv.db")
+    #for skins in my_inventory:
+    inv.insertInv(my_inventory)
 
 
 my_inventory = []    
