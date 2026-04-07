@@ -3,31 +3,25 @@ import sqlite3
 class Database:
     def __init__(self, name):
         self.name = name
-        self.conn = None
-        self.cursor = None
-
-    def create_connection(self):
-        print(f"Creating connection for {self.name}")
-        try:
-            self.conn = sqlite3.connect(self.name)
-            print("Connected")
-        except:
-            print(f"Failed to connect to {self.name}")
-
-    def create_cursor(self):
-        print("Creating cursor")
-        try:
-            self.cursor = self.conn.cursor()
-            print("cusor created")
-        except:
-            print("failed to create cursor")
+        self.conn = sqlite3.connect(self.name)
+        self.cursor = self.conn.cursor()
         
-    def create_table(self):
+    def create_table_inventory(self):
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS skins (
                        id TEXT,
                        name TEXT,
                        market_hash_name TEXT
+                       )
+                """)
+        self.conn.commit()
+
+    def create_table_pricehistory(self):
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS prices (  
+                            market_hash_name TEXT,
+                            price REAL,
+                            timestamp TEXT
                        )
                 """)
         self.conn.commit()
@@ -46,11 +40,9 @@ class Database:
 def createDB(name):
     inv_db = Database(name)
 
-    inv_db.create_connection()
+    inv_db.create_table_inventory()
 
-    inv_db.create_cursor()
-
-    inv_db.create_table()
+    inv_db.create_table_pricehistory()
 
     return inv_db
     
