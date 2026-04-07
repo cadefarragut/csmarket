@@ -41,22 +41,18 @@ class Database:
 
 
 
-
-
-        
-
 # This function creates a sqlite db file and return the cursor for execution
 
 def createDB(name):
-    inv = Database(name)
+    inv_db = Database(name)
 
-    inv.create_connection()
+    inv_db.create_connection()
 
-    inv.create_cursor()
+    inv_db.create_cursor()
 
-    inv.create_table()
+    inv_db.create_table()
 
-    return inv
+    return inv_db
     
 
 
