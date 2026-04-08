@@ -12,7 +12,7 @@ class Inventory:
 
 
 
-def createInv(steamid):
+def inv_init(steamid):
     inv = Inventory(steamid)
 
     inv.getInventory()

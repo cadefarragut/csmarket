@@ -8,19 +8,13 @@ WEARS_URL = f"{BASE_URL}/skins_not_grouped.json"
   
 
 
-
-
 def main():
     skins = utils.load_json(SKINS_URL, "skins_cache.json")
     wears = utils.load_json(WEARS_URL, "wears_cache.json")
 
-    inventory = inv.createInv("76561198146131977")
-    print(inventory.skins)
-    
+    market = db.db_init("Market.db")
 
-    database = db.createDB("CadeInv.db")
-    #for skins in my_inventory:
-    #database.insertInv(inven)
+    market.createMarketDB()
 
 
 
